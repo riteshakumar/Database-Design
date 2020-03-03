@@ -1,0 +1,26 @@
+ssh rxk2622@omega.uta.edu
+UTA Net ID Password
+
+sqlplus /nolog
+connect rxk2622@pcse1p
+Omega Oracle Password
+ 
+echo @Create_Tables | sqlplus rxk2622/Omega Oracle Password 
+
+javac -classpath ojdbc6.jar Java_SQl.java
+
+java Java_SQl
+
+echo @Item3_Queries | sqlplus rxk2622/Omega Oracle Password 
+
+echo @Item4_Queries | sqlplus rxk2622/Omega Oracle Password 
+
+echo @Integrity_Errors | sqlplus rxk2622/Omega Oracle Password 
+
+
+ssh rxk2622@omega.uta.edu
+UTA Net ID Password
+
+sqlplus /nolog
+connect rxk2622@pcse1p
+Omega Oracle Password

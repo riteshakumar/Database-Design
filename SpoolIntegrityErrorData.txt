@@ -1,0 +1,55 @@
+
+Session altered.
+
+5. Execute 3 more Insert commands in SQLPLUS that attempt to insert 3 more records, such that the records violate the integrity constraints. Make each of the 3 records violate a different type of integrity constraint. Capture your commands in spool files for turning in.
+
+Insert into EMPLOYEE values ('John', 'B', 'Smith', '123456789', '1965-01-09', '731 Fondren, Houston, TX', 'M', 30000, '333445555',null)
+                                                                                                                                  *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("RXK2622"."EMPLOYEE"."DNO") 
+
+Explanation- We can't insert null values in not null attributes.(Like DNO was not null attributes)
+
+
+insert into department values ('Saga',5,'333445555','1988-05-22')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RXK2622.SYS_C00252897) violated 
+
+Explanation: We can't insert non-unique values in primary key or unique attributes.(Like DNUMBER was primary key attributes)
+
+
+INSERT INTO employee VALUES ('Jennifer', 'S', 'Wallace', '987654321', '20-JUN-31', 'Bellaire,TX', 'F', 43000, '888665555', null)
+                                                                      *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+Explanation: We can't insert different data type values.(Like bdate attribute was of date data type with nls_date_format = 'YYYY-MM-DD', but we tries to insert date violating the date value with year greater than 12)
+
+
+
+
+6. Execute a command in SQLPLUS to delete a record that violates a referential integrity constraint. Capture your command in a spool file for turning in.
+
+DELETE FROM department where dnumber='5' 
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (RXK2622.SYS_C00252915) violated - child record 
+found 
+
+Explanation: We can't delete referenced attributes values.(Like here we tried to delete the dnumber 5 which has child record in employee table as dno. )
+
+
+
+
+
+7. Repeat 5 but Insert three new records that do not violate any integrity constraints. Capture your commands in spool files for turning in.
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+

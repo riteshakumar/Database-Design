@@ -1,0 +1,64 @@
+4. Write down the queries in SQLPLUS for the English queries that are provided in section 2. Execute each query and display its results. Capture your commands in spool files for turning in.
+
+Session altered.
+
+1. Insert a record ('Services', 1, '123456789', '11-AUG-2012') into DEPARTMENT.
+
+insert into department(Dname,Dnumber,Mgr_ssn,Mgr_start_date) values ('Services',1, '123456789', '2012-08-11')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RXK2622.SYS_C00252897) violated 
+
+Explanation: Unique constraint violation.(We tried to insert dnumber 1 which was already present in the table and is primary key)
+
+2. Insert a record ('Purchasing', 3, '990110110', '02-FEB-2013') into DEPARTMENT.
+
+insert into department(Dname,Dnumber,Mgr_ssn,Mgr_start_date) values ('Purchasing', 3, '990110110', '2013-02-02')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RXK2622.SYS_C00252897) violated 
+
+Explanation: Unique constraint violation.(We tried to insert dnumber 3 which was already present in the table and is primary key)
+
+3. update dept_locations set dnumber='9' where dlocation='Seattle';
+
+1 row created.
+
+4. update employee set salary=55000 where ssn='444444444';
+
+1 row updated.
+
+5. Insert into EMPLOYEE(FNAME,mnit,lname,ssn,bdate,address,sex,salary,super_ssn,dno) values ('Jane', 'B', 'Smith', '666666606', '1980-03-01', '3556 W Second Street,Miami,FL', 'F', 85000, '666666603', 5); 
+
+1 row updated.
+
+Insert into EMPLOYEE(FNAME,mnit,lname,ssn,bdate,address,sex,salary,super_ssn,dno) values ('Jane', 'B', 'Smith', '666666606', '1980-03-01', '3556 W Second Street,Miami,FL', 'F', 85000, '666666603', 5)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (RXK2622.SYS_C00252914) violated - parent key 
+not found 
+
+Explanation: Refrential key integrity error.(Here we tried insert employee with mgr_ssn='666666603' which is was not present as ssn in employee table.)
+
+6. update works_on set hours='25' where essn='666884444' and pno='1' ; 
+
+1 row updated.
+
+7. delete from employee where ssn='432765098'; 
+
+1 row deleted.
+
+8. DELETE from department where dnumber='9'; 
+
+DELETE from department where dnumber='9'
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (RXK2622.SYS_C00252917) violated - child record 
+found 
+
+Explanation: Intregrity error, we tried to delete department Dnumber 9 which has child record in employee table as dno.
+
+9. DELETE from dependent where essn='666666608'; 
+
+1 row deleted.
+

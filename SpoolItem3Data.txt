@@ -1,0 +1,128 @@
+3. Write SQL commands for the updates that are provided in section 2. First, execute the updates one after the other and see which updates violate integrity constraints and which do not. Then, execute the retrieval queries (see item 4 below) and display their results. Capture your commands in spool files for turning in. 
+
+Session altered.
+
+1. Select all the attributes for all employees whose last name is 'Jones' or ‘James’.
+
+FNAME           M LNAME           SSN       BDATE                               
+--------------- - --------------- --------- ----------                          
+ADDRESS                        S     SALARY SUPER_SSN        DNO                
+------------------------------ - ---------- --------- ----------                
+Borg            E James           888665555 1937-11-10                          
+450 Stone, Houston, TX         M      55000 987654321          1                
+                                                                                
+Jonny           E Jones           666666608 1937-11-10                          
+450 Stone, Houston, TX         M      55000 987654321          1                
+                                                                                
+2. Select all the attributes for all employees whose first name is 'Kim' or ‘Wilson’.
+
+FNAME           M LNAME           SSN       BDATE                               
+--------------- - --------------- --------- ----------                          
+ADDRESS                        S     SALARY SUPER_SSN        DNO                
+------------------------------ - ---------- --------- ----------                
+Kim             B Smith           123456788 1965-01-09                          
+731 Fondren, Houston, TX       M      30000 333445555          5                
+                                                                                
+Wilson          T Wong            333445554 1955-12-08                          
+638 Voss, Houston, TX          M      40000 888665555          5                
+                                                                                
+3. Select the names and Ssn of employees who work on more than one project and count the total hours that the employees work on. 
+
+FNAME           SSN       COUNT_OF_PROJECT TOTAL_HOURS                          
+--------------- --------- ---------------- -----------                          
+Ahmad           987987987                2          40                          
+Smith           123456789                2          40                          
+Jennifer        987654321                2          35                          
+Joyce           453453453                3          60                          
+Franklin        333445555                5          50                          
+Alicia          999887777                2          40                          
+Ramesh          666884444                2          65                          
+
+7 rows selected.
+
+4. For each PROJECT, retrieve the project name, number, and location plus the number of employees who works on the project.
+
+PNAME              PNUMBER PLOCATION       NO_OF_EMPLOYEE                       
+--------------- ---------- --------------- --------------                       
+Newbenefits             30 Stafford                     4                       
+Product K               15 Houston                      1                       
+Computerization         10 Stafford                     3                       
+ProductZ                 3 Houston                      5                       
+Reorganization          20 Houston                      2                       
+ProductY                 2 Sugarland                    3                       
+ProductX                 1 Bellaire                     3                       
+
+7 rows selected.
+
+5. For each employee who works in department 5 on a project in Houston, retrieve the employee’s Ssn, first and last names, and the project number, name, and hours for
+each project that the employee works on.
+
+SSN       FNAME           LNAME              PNUMBER PNAME                HOURS 
+--------- --------------- --------------- ---------- --------------- ---------- 
+453453452 John            English                 15 Product K               40 
+
+6. Retrieve the last name and first name of all employees who work more than 40 hours per week total (on all their projects).
+
+LNAME           FNAME           TOTAL_HOURS                                     
+--------------- --------------- -----------                                     
+Wong            Franklin                 50                                     
+English         Joyce                    60                                     
+Narayan         Ramesh                   65                                     
+
+(3) Select the first and last name of each employee who is a supervisor, plus count the total number of employees supervised by each supervisor.
+
+FNAME           LNAME             COUNT(*)                                      
+--------------- --------------- ----------                                      
+Borg            James                    8                                      
+Franklin        Wong                    24                                      
+Jennifer        Wallace                  6                                      
+
+(4) For each project determine the total hours that employees work on that project
+per week.
+
+PNAME           TOTAL_HOURS                                                     
+--------------- -----------                                                     
+Computerization          55                                                     
+ProductZ                100                                                     
+ProductY               37.5                                                     
+Product K                40                                                     
+ProductX               77.5                                                     
+Reorganization           25                                                     
+Newbenefits              65                                                     
+
+7 rows selected.
+
+8. Find which employee has more than 2 dependents.
+
+FNAME           LNAME                                                           
+--------------- ---------------                                                 
+Smith           John                                                            
+Franklin        Wong                                                            
+Kenny           Smith                                                           
+Amber           Zelaya                                                          
+
+9. Find which employee has more than 1 children.
+
+FNAME           LNAME                                                           
+--------------- ---------------                                                 
+Smith           John                                                            
+Franklin        Wong                                                            
+Kenny           Smith                                                           
+Amber           Zelaya                                                          
+
+10. Find all the employee who works in the department that is located in Atlanta. Select their first name and last name.
+
+FNAME           LNAME                                                           
+--------------- ---------------                                                 
+West            Wong                                                            
+East            Tong                                                            
+
+11.Find all the departments located in Houston and list how many projects are their under those departments.
+
+DNAME             COUNT(*)                                                      
+--------------- ----------                                                      
+Research                 3                                                      
+Headquarters             1                                                      
+Test                     3                                                      
+Developers               1                                                      
+
