@@ -1,6 +1,6 @@
 # Database-Design
 
-Designing a database structure for company and its business components.
+Design a database schema for company and its business components and fetch data from cloud omega server.
 
 Execution: 
 ssh nedt-id@omega.uta.edu
