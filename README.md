@@ -1,4 +1,5 @@
 # Database-Design
+
 Designing a database structure for company and its business components.
 
 Execution: 
